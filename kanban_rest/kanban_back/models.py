@@ -13,6 +13,7 @@ class Coluna(models.Model):
     #    app_label = 'kanban_back'
 
 class Tarefa(models.Model):
+    titulo = models.CharField(max_length=500)
     descricao = models.CharField(max_length=500)
     coluna = models.ForeignKey(Coluna, on_delete=models.CASCADE)
     #class Meta:

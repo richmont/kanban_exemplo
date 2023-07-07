@@ -16,11 +16,13 @@ Including another URLconf
 """
 #from django.contrib import admin
 from django.urls import path
-from kanban_back.views import ListarColunas, ListarQuadros, ListarTarefas
+from kanban_back.views.ColunaViews import ColunaList, ColunaUpdate, ColunaDelete
+from kanban_back.views.TarefaViews import TarefaList, TarefaUpdate
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('api/colunas/', ListarColunas.as_view(), name="Listagem de colunas"),
-    path('api/quadros/', ListarQuadros.as_view(), name="Listagem de quadros"),
-    path('api/tarefas/', ListarTarefas.as_view(), name="Listagem de Tarefas"),
+    path('api/colunas/', ColunaList.as_view(), name="Listagem de colunas"),
+    path('api/colunas/update', ColunaUpdate.as_view(), name="Atualização de colunas"),
+    #path('api/quadros/', ListarQuadros.as_view(), name="Listagem de quadros"),
+    path('api/tarefas/', TarefaList.as_view(), name="Listagem de Tarefas"),
 ]
